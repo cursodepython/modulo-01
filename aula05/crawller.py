@@ -19,11 +19,11 @@ def getEuro():
 def getTemperatura():
     content = urllib.request.urlopen("https://www.climatempo.com.br/previsao-do-tempo/cidade/88/goiania-go").read()
     content = str(content)
-    find = 'xima">'
+    find = 'tempMax0">'
     posicao = int(content.index(find) + len(find))
     maxima = content[ posicao : posicao  + 2]
 
-    find = 'nima">'
+    find = 'Min0">'
     posicao = int(content.index(find) + len(find))
     minima = content[ posicao : posicao  + 2]
     return [minima, maxima]
